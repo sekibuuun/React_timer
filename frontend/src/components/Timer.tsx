@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function Timer () {
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const [now, setNow] = useState<Date>(new Date())
-  const [seconds, setSeconds] = useState<number>(10)
+  const [seconds, setSeconds] = useState<number>(0)
 
   useEffect(() => {
     if (isStarted) {
@@ -31,7 +31,7 @@ function Timer () {
           <button onClick={() => startTimer()}>Start</button>
         </div>
       }
-      <p>{seconds <= 0 ? "COMPLETE" : seconds}</p>
+      <p>{seconds <= 0 ? "COMPLETE" : `${Math.floor(seconds / 60)}:${seconds % 60}`}</p>
     </div>
   )
 }
