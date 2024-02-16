@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 function Timer () {
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const [now, setNow] = useState<Date>(new Date())
-  const [seconds, setSeconds] = useState<number>(60)
+  const [seconds, setSeconds] = useState<number>(10)
 
   useEffect(() => {
     if (isStarted) {
       setInterval(() => {
-        setSeconds(seconds - Math.floor((new Date().getTime() - now.getTime()) / (1000)))
+        const count = seconds - Math.floor((new Date().getTime() - now.getTime()) / (1000))
+        console.log(count);
+        setSeconds(count)
       }, 1000)
     }
     console.log('Timer component mounted')
@@ -29,7 +31,7 @@ function Timer () {
           <button onClick={() => startTimer()}>Start</button>
         </div>
       }
-      <p>{seconds}</p>
+      <p>{seconds <= 0 ? "COMPLETE" : seconds}</p>
     </div>
   )
 }
