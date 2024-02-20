@@ -32,7 +32,7 @@ function Timer () {
           <button onClick={() => start()}>Start</button>
         </div>
       }
-      <TimeDisplay seconds={seconds}/>
+      {seconds <= 0 ? <p>COMPLETE</p> : <TimeDisplay seconds={seconds}/>}
     </div>
   )
 }
