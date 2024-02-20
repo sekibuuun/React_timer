@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import TimeDisplay from './TimeDisplay';
 
 function Timer () {
   const [isStarted, setIsStarted] = useState<boolean>(false)
@@ -31,7 +32,7 @@ function Timer () {
           <button onClick={() => start()}>Start</button>
         </div>
       }
-      <p>{seconds <= 0 ? "COMPLETE" : `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`}</p>
+      <TimeDisplay seconds={seconds}/>
     </div>
   )
 }
