@@ -31,7 +31,7 @@ function Timer () {
           <button onClick={() => startTimer()}>Start</button>
         </div>
       }
-      <p>{seconds <= 0 ? "COMPLETE" : `${Math.floor(seconds / 60)}:${seconds % 60}`}</p>
+      <p>{seconds <= 0 ? "COMPLETE" : `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`}</p>
     </div>
   )
 }
