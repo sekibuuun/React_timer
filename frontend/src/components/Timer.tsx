@@ -12,6 +12,11 @@ function Timer () {
         const newSeconds = seconds - Math.floor((new Date().getTime() - startTime.getTime()) / (1000))
         console.log(newSeconds);
         setSeconds(newSeconds)
+        if (newSeconds === 0) {
+          setIsStarted(false)
+          clearInterval(intervalFanc)
+          return
+        }
       }, 1000)
 
       return () => {
