@@ -8,11 +8,15 @@ function Timer () {
 
   useEffect(() => {
     if (isStarted) {
-      setInterval(() => {
+      const countDown = setInterval(() => {
         const newSeconds = seconds - Math.floor((new Date().getTime() - startTime.getTime()) / (1000))
         console.log(newSeconds);
         setSeconds(newSeconds)
       }, 1000)
+
+      return () => {
+        clearInterval(countDown)
+      }
     }
     console.log('Timer component mounted')
   }, [isStarted])
