@@ -8,14 +8,14 @@ function Timer () {
 
   useEffect(() => {
     if (isStarted) {
-      const countDown = setInterval(() => {
+      const intervalFanc = setInterval(() => {
         const newSeconds = seconds - Math.floor((new Date().getTime() - startTime.getTime()) / (1000))
         console.log(newSeconds);
         setSeconds(newSeconds)
       }, 1000)
 
       return () => {
-        clearInterval(countDown)
+        clearInterval(intervalFanc)
       }
     }
     console.log('Timer component mounted')
