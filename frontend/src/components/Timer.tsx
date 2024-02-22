@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCountTime } from '../hooks/hooks';
+import { useCountTime } from '../hooks/useCountTime';
 import TimeDisplay from './TimeDisplay';
 
 function Timer () {
