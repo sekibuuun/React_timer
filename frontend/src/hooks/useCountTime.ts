@@ -4,6 +4,7 @@ export const useCountTime = () => {
     const [isStarted, setIsStarted] = useState<boolean>(false)
     const [startTime, setStartTime] = useState<Date>(new Date())
     const [seconds, setSeconds] = useState<number>(0)
+    const [isFinished, setIsFinished] = useState<boolean>(false)
   
     useEffect(() => {
       if (isStarted) {
@@ -13,6 +14,7 @@ export const useCountTime = () => {
           setSeconds(newSeconds)
           if (newSeconds === 0) {
             clearInterval(intervalID)
+            setIsFinished(true)
             return
           }
         }, 1000)
@@ -29,5 +31,5 @@ export const useCountTime = () => {
       setStartTime(new Date())
     }
 
-    return { isStarted, seconds, setSeconds, start }
+    return { isStarted, isFinished, seconds, setSeconds, start }
 }
