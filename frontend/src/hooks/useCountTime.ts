@@ -10,7 +10,6 @@ export const useCountTime = () => {
       if (isStarted) {
         const intervalID = setInterval(() => {
           const newSeconds = seconds - Math.floor((new Date().getTime() - startTime.getTime()) / (1000))
-          console.log(newSeconds);
           setSeconds(newSeconds)
           if (newSeconds === 0) {
             clearInterval(intervalID)
@@ -22,7 +21,6 @@ export const useCountTime = () => {
           clearInterval(intervalID)
         }
       }
-      console.log('Timer component mounted')
     }, [isStarted])
   
     const start = () => {
