@@ -3,7 +3,7 @@ import { useCountTime } from '../hooks/useCountTime';
 import TimeDisplay from './TimeDisplay';
 
 function Timer () {
-  const { isStarted, seconds, setSeconds, start } = useCountTime()
+  const { isStarted, isFinished, seconds, setSeconds, start } = useCountTime()  
 
   return (
     <div>
@@ -15,7 +15,7 @@ function Timer () {
           <button onClick={() => start()}>Start</button>
         </div>
       }
-      {seconds <= 0 ? <p>COMPLETE</p> : <TimeDisplay seconds={seconds}/>}
+      {isFinished ? <p>COMPLETE</p> : <TimeDisplay seconds={seconds}/>}
     </div>
   )
 }
